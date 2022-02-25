@@ -1,5 +1,6 @@
 # _config.yml
 title: Memoria...
+description: "In my memories."
 # All the plugins we will be installing now that we won't be using GitHub Pages
 plugins:
   - jekyll-katex  # optional
@@ -14,3 +15,6 @@ theme: jekyll-theme-primer
 repository: user/repo
 # Generate permalinks in format specified in: https://jekyllrb.com/docs/permalinks/#built-in-formats
 permalink: pretty
+
+header_pages:
+  - index.md
