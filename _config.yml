@@ -15,6 +15,3 @@ theme: jekyll-theme-primer
 repository: user/repo
 # Generate permalinks in format specified in: https://jekyllrb.com/docs/permalinks/#built-in-formats
 permalink: pretty
-
-header_pages:
-  - inbox.md
