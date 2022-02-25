@@ -17,4 +17,4 @@ repository: user/repo
 permalink: pretty
 
 header_pages:
-  - index.md
+  - inbox.md
