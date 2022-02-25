@@ -1,5 +1,5 @@
 ---
-layout: homebrew
+layout: home
 ---
 In my memories.
 
