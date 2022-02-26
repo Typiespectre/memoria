@@ -9,4 +9,6 @@ In my memories.
 
 [파이썬 백준 7576](./_posts/Algorithm/2022-02-25-py7576.md)
 
-[2022-02-26-TIL](./_posts/Computer/2022-02-26-TIL.md)
+[useState](./_posts/Computer/2022-02-26-useState.md)
+
+[useEffect](_posts/Computer/2022-02-26-useEffect.md)
