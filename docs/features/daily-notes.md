@@ -34,7 +34,7 @@ The following properties can be used:
 
 ```json
   "foam.openDailyNote.directory": "journal",
-  "foam.openDailyNote.filenameFormat": "'daily-note'-yyyy-mm-dd",
+  "foam.openDailyNote.filenameFormat": "yyyy-mm-dd-'daily-note'",
   "foam.openDailyNote.fileExtension": "mdx",
   "foam.openDailyNote.titleFormat": "'Journal Entry, ' dddd, mmmm d",
 ```
