@@ -16,3 +16,5 @@ In my memories.
 [파이썬 백준 16509](./_posts/Algorithm/2022-03-09-py16509.md)
 
 [Git 명령어들](./_posts/Computer/2022-03-10-gitcommand.md)
+
+[GCC 컴파일 과정](./_posts/Computer/2022-03-27-gcccomp.md)
