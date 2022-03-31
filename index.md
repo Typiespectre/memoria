@@ -20,3 +20,5 @@ In my memories.
 [GCC 컴파일 과정](./_posts/Computer/2022-03-27-gcccomp.md)
 
 [sed 사용법](_posts/Computer/2022-03-31-sed.md)
+
+[Python - passed by assignment](_posts/Computer/2022-03-31-callbypython.md)
