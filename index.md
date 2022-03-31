@@ -18,3 +18,7 @@ In my memories.
 [Git 명령어들](./_posts/Computer/2022-03-10-gitcommand.md)
 
 [GCC 컴파일 과정](./_posts/Computer/2022-03-27-gcccomp.md)
+
+[가상세계 뉴스레터 2](_posts/Philosophy/2022-02-16-newsletter2.md)
+
+[가상세계 뉴스레터 3](_posts/Philosophy/2022-03-16-newsletter3.md)
