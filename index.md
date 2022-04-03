@@ -22,3 +22,5 @@ In my memories.
 [sed 사용법](_posts/Computer/2022-03-31-sed.md)
 
 [Python - passed by assignment](_posts/Computer/2022-03-31-callbypython.md)
+
+[Terminal Magic - ANSI](_posts/Computer/2022-04-03-termmagic.md)
