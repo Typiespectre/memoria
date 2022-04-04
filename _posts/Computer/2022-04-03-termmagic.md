@@ -39,11 +39,12 @@ yes 'All Work and No Play makes Jack a dull boy'
   - `\x1b[48;5;[n]m\n`은 배경색을 출력하는 코드이다. n의 범위는 0부터 255까지이며, 0부터 15는 기본 컬러 테이블, 232부터 255는 그레이스케일 컬러 테이블, 중간의 숫자들은 256 컬러 테이블이다. 참고로 `\x1b[38;5;[n]m\n`은 글자색을 출력하는 코드로, 글자에 특정한 색을 입히고자 한다면, `printf "\x1b[38;5;53mHello\n"`와 같이 입력하면 된다.
   - 따라서 `while`문은 `yes` 명령어로부터 무한히 주어지는 16~231을 인덱스로 하여 배경색을 0.2초 간격으로 무한히 출력한다.
 
-![termmagic](../../attachments/termmagic.png)
+![termmagic](/attachments/termmagic.png)
 
-![heman](../../attachments/2022-04-03-20-28-21.png)
+![heman](/attachments/2022-04-03-20-28-21.png)
 
 참고자료:
+
 [기계인간님 블로그](https://johngrib.github.io/wiki/yes-cmd/)
 
 [ANSI Color Codes](https://talyian.github.io/ansicolors/)
