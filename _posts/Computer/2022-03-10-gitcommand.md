@@ -7,7 +7,7 @@ tags: "Computer"
 type: documents
 ---
 <!-- [[Computer]] -->
-# Git 명령어들
+## Git 명령어들
 
 기억력이 안좋아서 그런지, 매번 간단한 git 명령어를 잊어버려 귀찮은 경우가 많다. 그렇기에 여기에 (내 기준으로) 헷갈리는 명령어들을 따로 적어놓는다. 깃허브에 파일을 올리기 위해선, git을 설치해야 하고, 해당 프로젝트에 git을 설정해놓아야 한다.
 해당 명령어들을 참고한 [블로그](https://ebbnflow.tistory.com/196?category=842626) (너무나 정리가 잘 되어있다. 압도적 감사!)
@@ -25,11 +25,17 @@ git config --global user.email "my email"
 
 ### Git 스테이징(add, commit, status)
 
-사실 나는 귀찮아서 `git add .`를 사용하였는데, 이 경우 실제로 추가할 필요가 없는 파일까지 모두 추가가 되므로, 좋지 않은 습관이라고 한다. `git commit -m "메세지"`를 이용하면, 지금까지 추가된 내용들을 git이 추적하여 버전관리를 한다. `git status`는 현재 스테이징된 상태를 확인할 수 있다.
+사실 나는 귀찮아서 `git add .`를 사용하였는데, 이 경우 실제로 추가할 필요가 없는 파일까지 모두 추가가 되고, 어떤 내용이 실제로 커밋에 반영되었는지 감춰지므로 좋지 않은 습관이라고 한다. `git commit -m "메세지"`를 이용하면, 지금까지 추가된 내용들을 git이 추적하여 버전관리를 한다. `git status`는 현재 스테이징된 상태를 확인할 수 있다.
 
 ### Git 변경사항 확인 및 되돌리기(log, revert, reset)
 
 `git log`는 커밋된 git의 기록들을 확인할 수 있다. 만약 이전의 커밋으로 되돌아가야 한다면 커밋 기록에 부여된 번호를 작성해야 한다.
+
+* 나의 멋진 git log 설정:
+
+  ```sh
+  alias gl="git log --graph --full-history --all --color --date=short --pretty=tformat:\"%x1b[31m%h%x08%x1b[0m%x20%ad %x1b[32m%d%x1b[0m    %s%x20%x1b[33m(%an)%x1b[0m\""
+  ```
 
 파일을 이전 상태로 되돌리는 방법은 두 가지가 있다: `git reset`은 이전 상태로 이동하는 과정에서, 그 중간의 모든 기록들을 삭제하기에 이전 상태로 되돌아간 이후 다시 되돌아올 수 없다(노빠꾸 ㄷㄷ). 하지만 `git revert`는 다시 되돌아올 수 있다.
 
