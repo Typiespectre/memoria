@@ -135,11 +135,9 @@ git checkout -b branch1 origin/branch1
 서로 다른 두 로컬 저장소가 동일한 원격 저장소를 사용하는데, 한 저장소가 특정한 파일을 수정한 후 push를 한 사실을 모르는 다른 저장소가(해당 저장소가 이 사실을 알고 pull을 미리 하였다면 문제가 생기지 않을 것이다), 동일한 파일을 수정한 후 commit을 하여 push를 하고자 한다면, 경고메세지가 뜨며 push를 할 수 없게 된다. 이후 뒤늦게 pull을 하면, Conflict가 발생하게 된다.
 
 ![gitconflict1](/attachments/2022-04-10-00-30-53.png)
+(사진 출처: [https://ebbnflow.tistory.com/199?category=842626](https://ebbnflow.tistory.com/199?category=842626))
 
 둘 중 하나만 선택하고 저장한다.
-
-![gitconflict2](/attachments/2022-04-10-00-32-15.png)
-(사진 출처: [https://ebbnflow.tistory.com/199?category=842626](https://ebbnflow.tistory.com/199?category=842626))
 
 그리고 add, commit을 하는데, commit 뒤에 옵션을 붙이지 않고 commit만 입력한다.
 
