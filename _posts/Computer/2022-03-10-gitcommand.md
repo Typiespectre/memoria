@@ -29,20 +29,22 @@ git config --global user.email "my email"
 
 ### Git 변경사항 확인 및 되돌리기(log, revert, reset)
 
-`git log`는 커밋된 git의 기록들을 확인할 수 있다. 만약 이전의 커밋으로 되돌아가야 한다면 커밋 기록에 부여된 번호를 작성해야 한다.
+`git log`는 커밋된 git의 기록들을 확인할 수 있다. 만약 이전의 커밋으로 되돌아가야 한다면 커밋 기록에 부여된 번호를 사용해야 한다.
 
 * 나의 멋진 git log 설정:
 
   ```sh
+  # ~/.zshrc
+
   alias gl="git log --graph --full-history --all --color --date=short --pretty=tformat:\"%x1b[31m%h%x08%x1b[0m%x20%ad %x1b[32m%d%x1b[0m    %s%x20%x1b[33m(%an)%x1b[0m\""
   ```
 
-파일을 이전 상태로 되돌리는 방법은 두 가지가 있다: `git reset`은 이전 상태로 이동하는 과정에서, 그 중간의 모든 기록들을 삭제하기에 이전 상태로 되돌아간 이후 다시 되돌아올 수 없다(노빠꾸 ㄷㄷ). 하지만 `git revert`는 다시 되돌아올 수 있다.
+파일을 이전 상태로 되돌리는 방법은 두 가지가 있다: `git reset`은 이전 상태로 이동하는 과정에서, 그 중간의 모든 기록들을 삭제하기에 이전 상태로 되돌아간 이후 다시 되돌아올 수 없다(노빠꾸 ㄷㄷ). 하지만 `git revert`는 다시 되돌아올 수 있다. `revert`를 하면 기존의 로그 위에, `revert`한 로그가 덧붙여진다.
 
 ```shell
-git reset 되돌아갈 커밋번호 --hard
+git reset 되돌아갈 커밋번호(목적지) --hard
 // or
-git revert 삭제할 커밋번호
+git revert 삭제할 커밋번호(실제로 삭제되는 것은 아님!)
 ```
 
 `git revert`가 다시 되돌아갈 수 있는 이유는 **새로운 커밋 상태를 생성하기 때문**이다. `git revert`로 삭제하고 싶은 커밋을 선택하면, 로그에 해당 커밋 위로 Revert 커밋이 새로 생성된다. Revert 커밋은 삭제하고자 하는 커밋의 상태를 덮어쓴다.
@@ -91,11 +93,20 @@ git branch 브랜치이름
 git checkout 브랜치이름
 ```
 
-### 브랜치 병합(merge, rebase)
-
-현재 브런치와 특정 브랜치를 병합하는 경우. 가령 master 브랜치를 다른 브랜치와 병합하고자 한다면, 먼저 maseter 브랜치로 checkout을 해주어야 한다.
+`-b` flag를 이용하면 브랜치를 만들고, 해당 브랜치로 전환하기 위해 위처럼 두 번의 명령어를 입력하지 않아도 된다.
 
 ```shell
+git checkout -b 브랜치이름
+```
+
+### 브랜치 병합(merge, rebase)
+
+현재 브런치와 특정 브랜치를 병합하는 경우. 가령 master 브랜치를 다른 브랜치와 병합하고자 한다면, 먼저 master 브랜치로 checkout을 해주어야 한다. `merge`와 `rebase`의 차이점은, 두 명령어 모두 브랜치의 작업을 병합하지만, `rebase`는 기존의 커밋 이력이 변경되어 버린다.
+
+```shell
+git checkout master
+...
+
 git merge 브랜치이름
 // or
 git rebase 브랜치이름
@@ -105,9 +116,39 @@ git rebase 브랜치이름
 
 ### 브랜치 삭제(-D)
 
+브랜치를 master에 병합하였다면, 헷갈리지 않도록 삭제하자.
+
 ```shell
 git branch -D 브랜치이름
 ```
+
+### 브랜치 연동
+
+만약 원격저장소에 특정한 브랜치가 있는 반면 로컬에는 해당 브랜치가 없다면, 먼저 `git fetch`로 새로운 브랜치가 있다는 정보를 확인하고(`git branch -a`로 로컬과 원격저장소의 모든 브랜치를 확인할 수 있다), 아래의 명령어로 해당 브랜치와 동일한 이름으로 로컬에 브랜치를 생성하고 체크아웃을 진행할 수 있다(해당 브랜치는 branch1이라고 가정).
+
+```shell
+git checkout -b branch1 origin/branch1
+```
+
+## 충돌 해결하기
+
+서로 다른 두 로컬 저장소가 동일한 원격 저장소를 사용하는데, 한 저장소가 특정한 파일을 수정한 후 push를 한 사실을 모르는 다른 저장소가(해당 저장소가 이 사실을 알고 pull을 미리 하였다면 문제가 생기지 않을 것이다), 동일한 파일을 수정한 후 commit을 하여 push를 하고자 한다면, 경고메세지가 뜨며 push를 할 수 없게 된다. 이후 뒤늦게 pull을 하면, Conflict가 발생하게 된다.
+
+![gitconflict1](/attachments/2022-04-10-00-30-53.png)
+
+둘 중 하나만 선택하고 저장한다.
+
+![gitconflict2](/attachments/2022-04-10-00-32-15.png)
+(사진 출처: [https://ebbnflow.tistory.com/199?category=842626](https://ebbnflow.tistory.com/199?category=842626))
+
+그리고 add, commit을 하는데, commit 뒤에 옵션을 붙이지 않고 commit만 입력한다.
+
+```shell
+git add conflictTest
+git commit
+```
+
+이후 등장하는 vim 메세지 창에서 `:wq`를 입력하고, push하여 마무리하면 된다.
 
 ## Github 연동
 
@@ -136,7 +177,7 @@ git push -u origin master
 git push origin master
 ```
 
-만약 깃허브에 올리고 싶지 않은 정보가 있다면, 프로젝트에 `.gitignore` 파일을 만들어, 그 안에 내용을 저장해놓자.
+만약 깃허브에 올리고 싶지 않은 정보가 있다면, 프로젝트에 `.gitignore` 파일을 만들어, 그 안에 내용을 저장해놓자. `.gitignore`에 특정한 파일 이름 혹은 숨기고 싶은 확장자의 파일명을 입력하면, 해당 파일은 원격저장소에 업로드되지 않는다.
 
 ## 원격 저장소 소스 내려 받기
 
@@ -159,7 +200,7 @@ git fetch
 git status
 ```
 
-fetch 명령어를 입력하면, 원격 저장소의 현 상태를 로컬에서 확인할 수 있고, 이후 status를 입력하면, 원격 origin의 master 브랜치와 비교하여, 현재 로컬의 브랜치의 커밋 상태가 어떠한지 알 수 있다. 만약 커밋 하나가 원격 저장소의 브랜치보다 하나 뒤쳐져 있다면, 아래 명령어를 입력하여 로컬에 다운로드를 해야한다.
+fetch 명령어를 입력하면, 원격 저장소의 현 상태를 로컬에서 확인할 수 있고, 이후 status를 입력하면, 원격 origin의 master 브랜치와 비교하여, 현재 로컬의 브랜치의 커밋 상태가 어떠한지 알 수 있다. 만약 커밋 하나가 원격 저장소의 브랜치보다 하나 뒤쳐져 있다면(`Your branch is behind ... by 1 commit and can be fast-forwarded.`), 아래 명령어를 입력하여 로컬에 다운로드를 해야한다.
 
 ```shell
 git pull 원격저장소이름 브랜치명
