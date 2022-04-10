@@ -24,3 +24,5 @@ In my memories.
 [Python - passed by assignment](_posts/Computer/2022-03-31-callbypython.md)
 
 [Terminal Magic - ANSI](_posts/Computer/2022-04-03-termmagic.md)
+
+[About LLDB](_posts/Computer/2022-04-10-lldbtutorial.md)
