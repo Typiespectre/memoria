@@ -27,3 +27,5 @@ layout: home
 [Terminal Magic - ANSI](_posts/Computer/2022-04-03-termmagic.md)
 
 [About LLDB](_posts/Computer/2022-04-10-lldbtutorial.md)
+
+[나만의 이메일 만들기(feat. AWS)](_posts/Computer/2022-05-23-makingEmail.md)
