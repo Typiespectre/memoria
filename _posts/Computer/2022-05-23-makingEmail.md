@@ -122,11 +122,11 @@ AWS SES에 들어갔다면, 좌측 대시보드의 `Configuration - Verified ide
 
 이제는 `SES`로 다시 이동하여... (복잡하다 복잡해)
 
-1) `Email receiving` 탭에서 `Create rule set`를 클릭한다.
-2) rule set의 이름을 설정하고, `Create rule`을 클릭한다(현재 rule set 안으로 들어간 상태).
-3) 마찬가지로 rule의 이름을 설정하고, 송수신하기 원하는 주소(`Add new recipient condition`)를 설정한다. (예를 들어, `recipient condition`을 hello@test.com으로 설졍하면, hello@test.com 외 다른 주소, 가령 goodbye@test.com과 같은 주소로 이메일이 송신되지 않는다. 옵션인 부분이여서 넘어가도 되지만 개인 판단으로는 필요한 과정이라고 생각한다. 만약 누군가 내 도메인을 이용해서 이메일을 무단으로 사용한다면?!)
-4) `Add new action`에서 `Deliver to S3 bucket`을 클릭하고, 이전에 만들었던 버켓의 이름을 선택하고 끝낸다.
-5) 해당 rule set 페이지로 들어가 `set as active`를 클릭하여 활성화한다.
+1. `Email receiving` 탭에서 `Create rule set`를 클릭한다.
+2. rule set의 이름을 설정하고, `Create rule`을 클릭한다(현재 rule set 안으로 들어간 상태).
+3. 마찬가지로 rule의 이름을 설정하고, 송수신하기 원하는 주소(`Add new recipient condition`)를 설정한다. (예를 들어, `recipient condition`을 hello@test.com으로 설졍하면, hello@test.com 외 다른 주소, 가령 goodbye@test.com과 같은 주소로 이메일이 송신되지 않는다. 옵션인 부분이여서 넘어가도 되지만 개인 판단으로는 필요한 과정이라고 생각한다. 만약 누군가 내 도메인을 이용해서 이메일을 무단으로 사용한다면?!)
+4. `Add new action`에서 `Deliver to S3 bucket`을 클릭하고, 이전에 만들었던 버켓의 이름을 선택하고 끝낸다.
+5. 해당 rule set 페이지로 들어가 `set as active`를 클릭하여 활성화한다.
 
 모든 과정이 완료되었다면, 도메인에 이메일을 보낼 경우 `s3`에 이메일 객체가 쌓이는 것을 확인할 수 있을 것이다.
 
