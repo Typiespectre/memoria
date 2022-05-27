@@ -29,3 +29,5 @@ layout: home
 [About LLDB](_posts/Computer/2022-04-10-lldbtutorial.md)
 
 [나만의 이메일 만들기(feat. AWS)](_posts/Computer/2022-05-23-makingEmail.md)
+
+[C 백준 1158](_posts/Algorithm/2022-05-27-c1158.md.md)
