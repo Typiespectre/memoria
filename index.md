@@ -31,3 +31,5 @@ layout: home
 [나만의 이메일 만들기(feat. AWS)](_posts/Computer/2022-05-23-makingEmail.md)
 
 [C 백준 1158](_posts/Algorithm/2022-05-27-c1158.md)
+
+[valgrind 없이 메모리 누수 확인하기(feat. leaks)](_posts/Computer/2022-06-26-leaks.md)
