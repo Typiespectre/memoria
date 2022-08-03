@@ -119,3 +119,5 @@ export {consoleFunction as default, exString, exArray, exObject}; // 다른 객�
 
 `default`는 한 객체에만 선언할 수 있기에 해당 스크립트의 메인 객체에만 선언하는 것이 좋다.
 `default`는 `const`, `let`, `var`와 함께 선언하지 못한다.
+
+참고: [https://smilerici.tistory.com/37](https://smilerici.tistory.com/37)
